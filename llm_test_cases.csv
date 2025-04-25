@@ -1,0 +1,172 @@
+scenario,endpoint,method,description,expected_status,request_body
+"Positive - Valid petId, additionalMetadata, and file",/pet/123/uploadImage,POST,Upload an image for pet with ID 123,200,"{'additionalMetadata': 'Additional data', 'file': 'example.jpg'}"
+Positive - Valid petId with additionalMetadata,/pet/456/uploadImage,POST,Upload an image for pet with ID 456 with additional metadata,200,{'additionalMetadata': 'Additional info'}
+Positive - Valid petId with only file,/pet/789/uploadImage,POST,Upload an image for pet with ID 789 with only file,200,{'file': 'cat.jpg'}
+Negative - Missing petId,/pet//uploadImage,POST,Attempt to upload an image without providing petId,400,
+Negative - Invalid petId format,/pet/abc/uploadImage,POST,Attempt to upload an image with invalid petId format,400,
+Negative - Missing file,/pet/123/uploadImage,POST,Attempt to upload an image without providing a file,400,{'additionalMetadata': 'Missing file'}
+Edge - Empty additionalMetadata,/pet/123/uploadImage,POST,Upload an image for pet with empty additional metadata,200,{'additionalMetadata': ''}
+Edge - Large file size,/pet/123/uploadImage,POST,Upload an image for pet with a large file size,200,{'file': 'large_image.jpg'}
+Edge - Null additionalMetadata,/pet/123/uploadImage,POST,Upload an image for pet with null additional metadata,200,{'additionalMetadata': None}
+Positive - Valid pet object provided,/pet,POST,Add a new pet to the store with valid details,200,"{'name': 'Fluffy', 'category': {'id': 1, 'name': 'Dogs'}, 'tags': [{'id': 1, 'name': 'cute'}], 'status': 'available'}"
+Positive - Valid pet object with additional properties,/pet,POST,Add a new pet to the store with extra details,200,"{'name': 'Whiskers', 'category': {'id': 2, 'name': 'Cats'}, 'tags': [{'id': 2, 'name': 'adorable'}], 'status': 'available', 'photoUrls': ['https://example.com/whiskers.jpg']}"
+Positive - Valid pet object with empty optional fields,/pet,POST,Add a new pet to the store with empty optional fields,200,"{'name': 'Rex', 'category': {'id': 3, 'name': 'Dogs'}, 'status': 'available'}"
+Negative - Missing required field,/pet,POST,Attempt to add a pet without providing the name,400,"{'category': {'id': 1, 'name': 'Dogs'}, 'tags': [{'id': 1, 'name': 'cute'}], 'status': 'available'}"
+Negative - Invalid category ID,/pet,POST,Attempt to add a pet with an invalid category ID,400,"{'name': 'Spot', 'category': {'id': 'invalid', 'name': 'Dogs'}, 'status': 'available'}"
+Negative - Invalid status value,/pet,POST,Attempt to add a pet with an invalid status value,400,"{'name': 'Mittens', 'category': {'id': 2, 'name': 'Cats'}, 'status': 'invalid'}"
+Edge - Large pet name length,/pet,POST,Attempt to add a pet with a very long name,200,"{'name': 'VeryLongPetNameVeryLongPetNameVeryLongPetNameVeryLongPetName', 'category': {'id': 1, 'name': 'Dogs'}, 'status': 'available'}"
+Edge - Null category,/pet,POST,Attempt to add a pet with null category,400,"{'name': 'Shadow', 'category': None, 'status': 'available'}"
+default,/pet,PUT,LLM generated test case (parsing error): Expecting property name enclosed in double quotes: line 164 column 15 (char 4422),200,{}
+Positive 1,/pet/findByStatus,GET,Valid status 'available',200,{'status': ['available']}
+Positive 2,/pet/findByStatus,GET,Valid status 'pending',200,{'status': ['pending']}
+Positive 3,/pet/findByStatus,GET,Valid status 'sold',200,{'status': ['sold']}
+Negative 1,/pet/findByStatus,GET,Missing status parameter,400,
+Negative 2,/pet/findByStatus,GET,Invalid status 'invalid',400,{'status': ['invalid']}
+Negative 3,/pet/findByStatus,GET,Empty status array,400,{'status': []}
+Edge 1,/pet/findByStatus,GET,Status with special characters,200,{'status': ['available$%']}
+Edge 2,/pet/findByStatus,GET,Status with maximum items,200,"{'status': ['available', 'pending', 'sold']}"
+Edge 3,/pet/findByStatus,GET,Status with maximum length,200,{'status': ['availableavailableavailableavailableavailableavailableavailableavailable']}
+Positive - Valid tags provided,/pet/findByTags,GET,Test with valid tags in query parameters,200,"{'tags': ['small', 'cute']}"
+Positive - Empty tags provided,/pet/findByTags,GET,Test with empty tags array,200,{'tags': []}
+Positive - Duplicate tags provided,/pet/findByTags,GET,Test with duplicate tags in query parameters,200,"{'tags': ['large', 'large']}"
+Negative - Missing tags parameter,/pet/findByTags,GET,Test without providing tags parameter,400,
+Negative - Invalid tag value,/pet/findByTags,GET,Test with invalid tag value,400,{'tags': ['123']}
+Negative - Invalid parameter name,/pet/findByTags,GET,Test with invalid query parameter name,400,{'invalid_tags': ['small']}
+Edge - Large number of tags provided,/pet/findByTags,GET,Test with a large number of tags in query parameters,200,"{'tags': ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7', 'tag8', 'tag9', 'tag10', 'tag11']}"
+Edge - Tags with special characters,/pet/findByTags,GET,Test with tags containing special characters,200,"{'tags': ['$special', '!chars', '@tags']}"
+Edge - Single tag provided,/pet/findByTags,GET,Test with only one tag in query parameters,200,{'tags': ['single']}
+Positive Test - Valid petId,/pet/123,GET,Retrieve information for a valid petId,200,
+Positive Test - Valid petId,/pet/456,GET,Retrieve information for another valid petId,200,
+Positive Test - Valid petId,/pet/789,GET,Retrieve information for a different valid petId,200,
+Negative Test - Missing petId,/pet/,GET,Attempt to retrieve information without providing petId,400,
+Negative Test - Invalid petId type,/pet/abc,GET,Attempt to retrieve information with a non-integer petId,400,
+Negative Test - PetId not found,/pet/999,GET,Attempt to retrieve information for a non-existent petId,404,
+Edge Test - Minimum petId,/pet/0,GET,Attempt to retrieve information for the minimum petId value,200,
+Edge Test - Maximum petId,/pet/9223372036854775807,GET,Attempt to retrieve information for the maximum petId value,200,
+Edge Test - Negative petId,/pet/-1,GET,Attempt to retrieve information for a negative petId,404,
+Positive Test - Update pet name,/pet/123,POST,Update the name of pet with ID 123,200,{'name': 'New Name'}
+Positive Test - Update pet status,/pet/456,POST,Update the status of pet with ID 456,200,{'status': 'Sold'}
+Positive Test - Update pet name and status,/pet/789,POST,Update the name and status of pet with ID 789,200,"{'name': 'New Name', 'status': 'Adopted'}"
+Negative Test - Missing pet ID,/pet/,POST,Attempt to update pet without providing ID,400,
+Negative Test - Invalid pet ID type,/pet/abc,POST,Attempt to update pet with non-integer ID,400,
+Negative Test - Missing name and status,/pet/123,POST,Attempt to update pet without providing name or status,400,
+Edge Test - Update pet name with very long name,/pet/123,POST,Update the name of pet with ID 123 using a very long name,200,{'name': 'Very Long Nameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
+Edge Test - Update pet status with special characters,/pet/456,POST,Update the status of pet with ID 456 using special characters,200,{'status': '!@#$%^&*()'}
+Edge Test - Update pet with empty name and status,/pet/789,POST,Update the pet with ID 789 with empty name and status,200,"{'name': '', 'status': ''}"
+Positive - Valid petId,/pet/123,DELETE,Delete pet with valid ID,200,
+Positive - Valid petId with api_key,/pet/456,DELETE,Delete pet with valid ID and api_key provided,200,{'api_key': 'valid_api_key'}
+Positive - Edge case with large petId,/pet/999999999999999999,DELETE,Delete pet with very large ID,200,
+Negative - Missing petId,/pet/,DELETE,Attempt to delete pet without providing ID,400,
+Negative - Invalid petId,/pet/abc,DELETE,Attempt to delete pet with invalid ID format,400,
+Negative - Unauthorized deletion,/pet/789,DELETE,Attempt to delete pet without valid api_key,400,
+Edge - Non-existent petId,/pet/0,DELETE,Attempt to delete a pet with ID 0,404,
+Edge - Negative petId,/pet/-1,DELETE,Attempt to delete a pet with negative ID,400,
+Edge - Max integer petId,/pet/9223372036854775807,DELETE,Attempt to delete a pet with maximum integer ID,200,
+Positive test case 1,/store/inventory,GET,Valid request to fetch store inventory,200,
+Positive test case 2,/store/inventory,GET,Valid request with additional query parameters,200,
+Positive test case 3,/store/inventory,GET,Valid request with special characters in query parameters,200,
+Negative test case 1,/store/inventory,GET,Request without required authentication,401,
+Negative test case 2,/store/inventory,GET,Invalid query parameter value,400,
+Negative test case 3,/store/inventory,GET,Request with invalid query parameter,400,
+Edge test case 1,/store/inventory,GET,Request with very large number of query parameters,200,
+Edge test case 2,/store/inventory,GET,Request with boundary query parameter values,200,
+Edge test case 3,/store/inventory,GET,Request with empty query parameters,200,
+Positive - Valid order placed,/store/order,POST,Test with a valid order placed for purchasing the pet,200,"{'id': 12345, 'petId': 67890, 'quantity': 1, 'shipDate': '2022-05-30T10:00:00Z', 'status': 'placed', 'complete': True}"
+Positive - Valid order placed with additional fields,/store/order,POST,Test with a valid order placed for purchasing the pet with extra fields,200,"{'id': 54321, 'petId': 98765, 'quantity': 2, 'shipDate': '2022-06-15T09:30:00Z', 'status': 'processing', 'complete': False, 'additionalField': 'additionalValue'}"
+Positive - Valid order placed with minimum required fields,/store/order,POST,Test with a valid order placed for purchasing the pet with minimum required fields,200,"{'petId': 24680, 'quantity': 1}"
+Negative - Missing required fields,/store/order,POST,Test with missing required fields in the order,400,{'quantity': 2}
+Negative - Invalid data type for field,/store/order,POST,Test with invalid data type for a field in the order,400,"{'id': 'invalid', 'petId': 12345, 'quantity': 1, 'shipDate': '2022-07-20T08:00:00Z', 'status': 'delivered', 'complete': False}"
+Negative - Invalid order status,/store/order,POST,Test with an invalid order status,400,"{'id': 98765, 'petId': 54321, 'quantity': 3, 'shipDate': '2022-08-10T11:30:00Z', 'status': 'invalidStatus', 'complete': True}"
+Edge - Maximum order quantity,/store/order,POST,Test with the maximum order quantity allowed,200,"{'id': 13579, 'petId': 24680, 'quantity': 10, 'shipDate': '2022-09-05T12:00:00Z', 'status': 'shipped', 'complete': True}"
+Edge - Empty order,/store/order,POST,Test with an empty order,400,{}
+Edge - Large order ID,/store/order,POST,Test with a large order ID,200,"{'id': 99999999999999999999, 'petId': 88888888888888888888, 'quantity': 5, 'shipDate': '2022-10-15T15:30:00Z', 'status': 'pending', 'complete': False}"
+Positive Test - Valid orderId,/store/order/5,GET,Fetching order with valid orderId,200,
+Positive Test - Maximum orderId,/store/order/10,GET,Fetching order with maximum valid orderId,200,
+Positive Test - Minimum orderId,/store/order/1,GET,Fetching order with minimum valid orderId,200,
+Negative Test - Invalid orderId,/store/order/15,GET,Fetching order with invalid orderId,400,
+Negative Test - Missing orderId,/store/order/,GET,Fetching order without providing orderId,400,
+Negative Test - Invalid orderId type,/store/order/abc,GET,Fetching order with invalid type of orderId,400,
+Edge Test - Lower bound orderId,/store/order/0,GET,Fetching order with orderId at lower bound,400,
+Edge Test - Upper bound orderId,/store/order/11,GET,Fetching order with orderId at upper bound,400,
+Edge Test - Negative orderId,/store/order/-5,GET,Fetching order with negative orderId,400,
+Positive - Valid orderId,/store/order/123,DELETE,Delete an existing order with a valid orderId,200,
+Positive - Valid orderId (Edge case),/store/order/1,DELETE,Delete an existing order with the minimum orderId value,200,
+Positive - Valid orderId (Edge case),/store/order/999999,DELETE,Delete an existing order with a very large orderId value,200,
+Negative - Missing orderId,/store/order/,DELETE,Attempt to delete an order without providing orderId,400,
+Negative - Invalid orderId,/store/order/abc,DELETE,Attempt to delete an order with non-integer orderId,400,
+Negative - Invalid orderId,/store/order/-1,DELETE,Attempt to delete an order with a negative orderId,400,
+Edge - orderId equals minimum value,/store/order/1,DELETE,Attempt to delete an order with the minimum valid orderId,200,
+Edge - orderId equals maximum value,/store/order/9223372036854775807,DELETE,Attempt to delete an order with the maximum valid orderId,200,
+Edge - orderId exceeds maximum value,/store/order/9223372036854775808,DELETE,Attempt to delete an order with an orderId that exceeds the maximum value,400,
+Positive test case 1,/user/createWithList,POST,Create users with a valid list of user objects,200,"[{'id': 1, 'username': 'john_doe', 'email': 'john.doe@example.com'}, {'id': 2, 'username': 'jane_smith', 'email': 'jane.smith@example.com'}]"
+Positive test case 2,/user/createWithList,POST,Create users with an empty list of user objects,200,[]
+Positive test case 3,/user/createWithList,POST,Create a single user with valid user object,200,"[{'id': 3, 'username': 'test_user', 'email': 'test.user@example.com'}]"
+Negative test case 1,/user/createWithList,POST,Create users with missing required fields,400,"[{'id': 4, 'username': 'missing_email_user'}]"
+Negative test case 2,/user/createWithList,POST,Create users with invalid data types,400,"[{'id': 'invalid_id', 'username': 'john_doe', 'email': 'john.doe@example.com'}]"
+Negative test case 3,/user/createWithList,POST,Create users with incorrect schema format,400,"{'id': 5, 'username': 'incorrect_schema_user', 'email': 'incorrect.user@example.com'}"
+Edge test case 1,/user/createWithList,POST,Create users with a large list of user objects,200,"[{'id': 6, 'username': 'user_1', 'email': 'user1@example.com'}, {'id': 7, 'username': 'user_2', 'email': 'user2@example.com'}, {'id': 8, 'username': 'user_3', 'email': 'user3@example.com'}, {'id': 9, 'username': 'user_4', 'email': 'user4@example.com'}]"
+Edge test case 2,/user/createWithList,POST,Create users with a single user object,200,"[{'id': 10, 'username': 'single_user', 'email': 'single.user@example.com'}]"
+Edge test case 3,/user/createWithList,POST,Create users with null values for user objects,400,"[{'id': None, 'username': None, 'email': None}]"
+Positive - Valid username provided,/user/user1,GET,Testing with a valid username user1,200,
+Positive - Another valid username provided,/user/testuser,GET,Testing with another valid username testuser,200,
+Positive - Boundary input for username,/user/abcdefghijklmnopqrstuvwxyz1234567890,GET,Testing with a boundary input for username,200,
+Negative - Invalid username provided,/user/invaliduser,GET,Testing with an invalid username invaliduser,404,
+Negative - Missing username parameter,/user/,GET,Testing with missing username parameter,400,
+Negative - Special characters in username,/user/user@123,GET,Testing with special characters in username,400,
+Edge - Long username input,/user/verylongusernameverylongusername,GET,Testing with a very long username input,404,
+Edge - Username with leading spaces,/user/ user1,GET,Testing with a username having leading spaces,404,
+Edge - Username with trailing spaces,/user/user1 ,GET,Testing with a username having trailing spaces,404,
+Positive test - Valid username and user object provided,/user/testuser,PUT,Update user 'testuser' with valid user object,200,"{'name': 'Test User', 'age': 30, 'email': 'testuser@example.com'}"
+Positive test - Valid username and empty user object provided,/user/testuser,PUT,Update user 'testuser' with empty user object,200,{}
+Positive test - Valid username and updated user object provided,/user/testuser,PUT,Update user 'testuser' with updated user object,200,"{'name': 'Updated User', 'age': 35, 'email': 'updateduser@example.com'}"
+Negative test - Missing user object,/user/testuser,PUT,Update user 'testuser' without providing user object,400,
+Negative test - Invalid username,/user/invaliduser,PUT,Attempt to update a non-existing user 'invaliduser',404,"{'name': 'Invalid User', 'age': 25, 'email': 'invaliduser@example.com'}"
+Negative test - Invalid user object,/user/testuser,PUT,Update user 'testuser' with invalid user object,400,"{'name': 'Test User', 'age': 'thirty', 'email': 'testuser@example.com'}"
+Edge test - Empty username,/user/,PUT,Attempt to update user with empty username,404,"{'name': 'Test User', 'age': 30, 'email': 'testuser@example.com'}"
+Edge test - Special characters in username,/user/test$user,PUT,Attempt to update user with special characters in username,404,"{'name': 'Special User', 'age': 40, 'email': 'specialuser@example.com'}"
+Edge test - Large user object,/user/largeuser,PUT,Update user 'largeuser' with a large user object,400,"{'name': 'Large User', 'age': 45, 'email': 'largeuser@example.com', 'address': '123 Main St, City, Country', 'phone': '1234567890', 'role': 'admin'}"
+Positive - Valid username provided,/user/testuser,DELETE,Delete a user with a valid username,200,
+Positive - Username with special characters provided,/user/test_user123,DELETE,Delete a user with a username containing special characters,200,
+Positive - Username with numbers provided,/user/user123,DELETE,Delete a user with a username containing numbers,200,
+Negative - Missing username parameter,/user/,DELETE,Attempt to delete a user without providing a username,400,
+Negative - Invalid username format,/user/123,DELETE,Attempt to delete a user with an invalid username format,400,
+Negative - Non-existent username provided,/user/nonexistentuser,DELETE,Attempt to delete a user that does not exist,404,
+Edge - Username with maximum length,/user/averylongusername0123456789012345678901234567890123456789012345678901234567890,DELETE,Delete a user with a username at the maximum length limit,200,
+Edge - Username with minimum length,/user/u,DELETE,Delete a user with a username at the minimum length limit,200,
+Edge - Username with special characters and numbers,/user/test_user123,DELETE,Delete a user with a username containing special characters and numbers,200,
+Positive Test - Valid credentials,/user/login,GET,Test with valid username and password,200,"{'username': 'test_user', 'password': 'password123'}"
+Positive Test - Different valid credentials,/user/login,GET,Test with another valid username and password,200,"{'username': 'another_user', 'password': 'securePassword'}"
+Positive Test - Empty password,/user/login,GET,Test with valid username and empty password,200,"{'username': 'test_user', 'password': ''}"
+Negative Test - Missing username,/user/login,GET,Test without providing username,400,{'password': 'password123'}
+Negative Test - Missing password,/user/login,GET,Test without providing password,400,{'username': 'test_user'}
+Negative Test - Invalid credentials,/user/login,GET,Test with incorrect username and password,400,"{'username': 'invalid_user', 'password': 'wrongPassword'}"
+Edge Test - Long username,/user/login,GET,Test with a very long username,400,"{'username': 'very_long_username_to_exceed_limit_for_testing', 'password': 'password123'}"
+Edge Test - Special characters in password,/user/login,GET,Test with special characters in password,200,"{'username': 'test_user', 'password': '!@#SpecialChars123'}"
+Edge Test - Empty username and password,/user/login,GET,Test with empty username and password,400,"{'username': '', 'password': ''}"
+Positive test case 1,/user/logout,GET,Valid user logging out,200,
+Positive test case 2,/user/logout,GET,User with active session logging out,200,
+Positive test case 3,/user/logout,GET,User logging out multiple times,200,
+Negative test case 1,/user/logout,GET,Missing session token,400,
+Negative test case 2,/user/logout,GET,Invalid session token format,400,
+Negative test case 3,/user/logout,GET,User not logged in trying to log out,400,
+Edge test case 1,/user/logout,GET,User with very long active session logging out,200,
+Edge test case 2,/user/logout,GET,User logging out with expired session token,200,
+Edge test case 3,/user/logout,GET,User logging out while server is under heavy load,200,
+Positive Test - Valid user array,/user/createWithArray,POST,Sending a valid array of user objects,200,"[{'id': 1, 'username': 'john_doe', 'email': 'john.doe@example.com'}, {'id': 2, 'username': 'jane_smith', 'email': 'jane.smith@example.com'}]"
+Positive Test - Empty user array,/user/createWithArray,POST,Sending an empty array of user objects,200,[]
+Positive Test - Single user in array,/user/createWithArray,POST,Sending an array with a single user object,200,"[{'id': 1, 'username': 'alice_smith', 'email': 'alice.smith@example.com'}]"
+Negative Test - Missing user object,/user/createWithArray,POST,Sending request without the 'body' parameter,400,
+Negative Test - Invalid user object,/user/createWithArray,POST,Sending an invalid user object in the array,400,"[{'id': 'abc', 'username': 'invalid_user', 'email': 'invalid.email'}]"
+Negative Test - Invalid JSON format,/user/createWithArray,POST,Sending an invalid JSON format,400,invalid_json
+Edge Test - Large user array,/user/createWithArray,POST,Sending a large array of user objects,200,"[{'id': 1, 'username': 'user_1', 'email': 'user1@example.com'}, {'id': 2, 'username': 'user_2', 'email': 'user2@example.com'}, {'id': 3, 'username': 'user_3', 'email': 'user3@example.com'}, {'id': 4, 'username': 'user_4', 'email': 'user4@example.com'}, {'id': 5, 'username': 'user_5', 'email': 'user5@example.com'}]"
+Edge Test - No user objects,/user/createWithArray,POST,Sending an array with no user objects,200,[]
+Edge Test - User object with minimum data,/user/createWithArray,POST,Sending a user object with minimum required data,200,[{'id': 1}]
+Positive - Valid user object,/user,POST,Create a new user with valid user object,200,"{'username': 'john_doe', 'email': 'john.doe@example.com', 'password': 'securepassword123'}"
+Positive - Empty user object,/user,POST,Attempt to create a new user with an empty user object,200,{}
+Positive - Large user object,/user,POST,Create a new user with a large user object,200,"{'username': 'very_long_username_that_exceeds_character_limit', 'email': 'very_long_email_address_that_exceeds_character_limit@example.com', 'password': 'a_very_long_and_secure_password_that_exceeds_character_limit_123'}"
+Negative - Missing username,/user,POST,Attempt to create a new user with missing username,400,"{'email': 'missing_username@example.com', 'password': 'password123'}"
+Negative - Invalid email format,/user,POST,Attempt to create a new user with invalid email format,400,"{'username': 'invalid_email_user', 'email': 'invalidemailformat', 'password': 'password123'}"
+Negative - Missing password,/user,POST,Attempt to create a new user with missing password,400,"{'username': 'missing_password_user', 'email': 'missing_password@example.com'}"
+Edge - Null user object,/user,POST,Attempt to create a new user with a null user object,400,
+Edge - Exceed maximum character limit for username,/user,POST,Attempt to create a new user with a username exceeding character limit,400,"{'username': 'very_long_username_that_exceeds_maximum_character_limit', 'email': 'max_char_limit_username@example.com', 'password': 'password123'}"
+Edge - Invalid schema for user object,/user,POST,Attempt to create a new user with an invalid user object schema,400,"{'name': 'invalid_schema_user', 'email': 'invalid_schema@example.com', 'password': 'password123'}"

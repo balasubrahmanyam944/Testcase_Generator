@@ -1,0 +1,181 @@
+endpoint,method,request_body,scenario,description,expected_status
+/pet/{petId}/uploadImage,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /pet/{petId}/uploadImage returns a successful response.,200
+/pet/{petId}/uploadImage,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /pet/{petId}/uploadImage returns a successful response.,200
+/pet/{petId}/uploadImage,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /pet/{petId}/uploadImage returns a successful response.,200
+/pet/{petId}/uploadImage,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /pet/{petId}/uploadImage returns an error when required inputs are missing or invalid.,400
+/pet/{petId}/uploadImage,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /pet/{petId}/uploadImage returns an error when required inputs are missing or invalid.,400
+/pet/{petId}/uploadImage,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /pet/{petId}/uploadImage returns an error when required inputs are missing or invalid.,400
+/pet/{petId}/uploadImage,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /pet/{petId}/uploadImage handles boundary condition inputs appropriately.,200
+/pet/{petId}/uploadImage,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /pet/{petId}/uploadImage handles boundary condition inputs appropriately.,200
+/pet/{petId}/uploadImage,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /pet/{petId}/uploadImage handles boundary condition inputs appropriately.,200
+/pet,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /pet returns a successful response.,200
+/pet,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /pet returns a successful response.,200
+/pet,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /pet returns a successful response.,200
+/pet,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /pet returns an error when required inputs are missing or invalid.,400
+/pet,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /pet returns an error when required inputs are missing or invalid.,400
+/pet,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /pet returns an error when required inputs are missing or invalid.,400
+/pet,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /pet handles boundary condition inputs appropriately.,200
+/pet,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /pet handles boundary condition inputs appropriately.,200
+/pet,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /pet handles boundary condition inputs appropriately.,200
+/pet,PUT,{},positive_variant_1,Rule-based positive test variant 1: Verify PUT /pet returns a successful response.,200
+/pet,PUT,{},positive_variant_2,Rule-based positive test variant 2: Verify PUT /pet returns a successful response.,200
+/pet,PUT,{},positive_variant_3,Rule-based positive test variant 3: Verify PUT /pet returns a successful response.,200
+/pet,PUT,{},negative_variant_1,Rule-based negative test variant 1: Verify PUT /pet returns an error when required inputs are missing or invalid.,400
+/pet,PUT,{},negative_variant_2,Rule-based negative test variant 2: Verify PUT /pet returns an error when required inputs are missing or invalid.,400
+/pet,PUT,{},negative_variant_3,Rule-based negative test variant 3: Verify PUT /pet returns an error when required inputs are missing or invalid.,400
+/pet,PUT,{},edge_variant_1,Rule-based edge test variant 1: Verify PUT /pet handles boundary condition inputs appropriately.,200
+/pet,PUT,{},edge_variant_2,Rule-based edge test variant 2: Verify PUT /pet handles boundary condition inputs appropriately.,200
+/pet,PUT,{},edge_variant_3,Rule-based edge test variant 3: Verify PUT /pet handles boundary condition inputs appropriately.,200
+/pet/findByStatus,GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /pet/findByStatus returns a successful response.,200
+/pet/findByStatus,GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /pet/findByStatus returns a successful response.,200
+/pet/findByStatus,GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /pet/findByStatus returns a successful response.,200
+/pet/findByStatus,GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /pet/findByStatus returns an error when required inputs are missing or invalid.,400
+/pet/findByStatus,GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /pet/findByStatus returns an error when required inputs are missing or invalid.,400
+/pet/findByStatus,GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /pet/findByStatus returns an error when required inputs are missing or invalid.,400
+/pet/findByStatus,GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /pet/findByStatus handles boundary condition inputs appropriately.,200
+/pet/findByStatus,GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /pet/findByStatus handles boundary condition inputs appropriately.,200
+/pet/findByStatus,GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /pet/findByStatus handles boundary condition inputs appropriately.,200
+/pet/findByTags,GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /pet/findByTags returns a successful response.,200
+/pet/findByTags,GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /pet/findByTags returns a successful response.,200
+/pet/findByTags,GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /pet/findByTags returns a successful response.,200
+/pet/findByTags,GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /pet/findByTags returns an error when required inputs are missing or invalid.,400
+/pet/findByTags,GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /pet/findByTags returns an error when required inputs are missing or invalid.,400
+/pet/findByTags,GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /pet/findByTags returns an error when required inputs are missing or invalid.,400
+/pet/findByTags,GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /pet/findByTags handles boundary condition inputs appropriately.,200
+/pet/findByTags,GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /pet/findByTags handles boundary condition inputs appropriately.,200
+/pet/findByTags,GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /pet/findByTags handles boundary condition inputs appropriately.,200
+/pet/{petId},GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /pet/{petId} returns a successful response.,200
+/pet/{petId},GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /pet/{petId} returns a successful response.,200
+/pet/{petId},GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /pet/{petId} returns a successful response.,200
+/pet/{petId},GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /pet/{petId} returns a successful response.,200
+/pet/{petId},POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /pet/{petId} returns a successful response.,200
+/pet/{petId},POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /pet/{petId} returns a successful response.,200
+/pet/{petId},POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},DELETE,{},positive_variant_1,Rule-based positive test variant 1: Verify DELETE /pet/{petId} returns a successful response.,200
+/pet/{petId},DELETE,{},positive_variant_2,Rule-based positive test variant 2: Verify DELETE /pet/{petId} returns a successful response.,200
+/pet/{petId},DELETE,{},positive_variant_3,Rule-based positive test variant 3: Verify DELETE /pet/{petId} returns a successful response.,200
+/pet/{petId},DELETE,{},negative_variant_1,Rule-based negative test variant 1: Verify DELETE /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},DELETE,{},negative_variant_2,Rule-based negative test variant 2: Verify DELETE /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},DELETE,{},negative_variant_3,Rule-based negative test variant 3: Verify DELETE /pet/{petId} returns an error when required inputs are missing or invalid.,400
+/pet/{petId},DELETE,{},edge_variant_1,Rule-based edge test variant 1: Verify DELETE /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},DELETE,{},edge_variant_2,Rule-based edge test variant 2: Verify DELETE /pet/{petId} handles boundary condition inputs appropriately.,200
+/pet/{petId},DELETE,{},edge_variant_3,Rule-based edge test variant 3: Verify DELETE /pet/{petId} handles boundary condition inputs appropriately.,200
+/store/inventory,GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /store/inventory returns a successful response.,200
+/store/inventory,GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /store/inventory returns a successful response.,200
+/store/inventory,GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /store/inventory returns a successful response.,200
+/store/inventory,GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /store/inventory returns an error when required inputs are missing or invalid.,400
+/store/inventory,GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /store/inventory returns an error when required inputs are missing or invalid.,400
+/store/inventory,GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /store/inventory returns an error when required inputs are missing or invalid.,400
+/store/inventory,GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /store/inventory handles boundary condition inputs appropriately.,200
+/store/inventory,GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /store/inventory handles boundary condition inputs appropriately.,200
+/store/inventory,GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /store/inventory handles boundary condition inputs appropriately.,200
+/store/order,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /store/order returns a successful response.,200
+/store/order,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /store/order returns a successful response.,200
+/store/order,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /store/order returns a successful response.,200
+/store/order,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /store/order returns an error when required inputs are missing or invalid.,400
+/store/order,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /store/order returns an error when required inputs are missing or invalid.,400
+/store/order,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /store/order returns an error when required inputs are missing or invalid.,400
+/store/order,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /store/order handles boundary condition inputs appropriately.,200
+/store/order,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /store/order handles boundary condition inputs appropriately.,200
+/store/order,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /store/order handles boundary condition inputs appropriately.,200
+/store/order/{orderId},GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/store/order/{orderId},GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/store/order/{orderId},GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/store/order/{orderId},DELETE,{},positive_variant_1,Rule-based positive test variant 1: Verify DELETE /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},DELETE,{},positive_variant_2,Rule-based positive test variant 2: Verify DELETE /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},DELETE,{},positive_variant_3,Rule-based positive test variant 3: Verify DELETE /store/order/{orderId} returns a successful response.,200
+/store/order/{orderId},DELETE,{},negative_variant_1,Rule-based negative test variant 1: Verify DELETE /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},DELETE,{},negative_variant_2,Rule-based negative test variant 2: Verify DELETE /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},DELETE,{},negative_variant_3,Rule-based negative test variant 3: Verify DELETE /store/order/{orderId} returns an error when required inputs are missing or invalid.,400
+/store/order/{orderId},DELETE,{},edge_variant_1,Rule-based edge test variant 1: Verify DELETE /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/store/order/{orderId},DELETE,{},edge_variant_2,Rule-based edge test variant 2: Verify DELETE /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/store/order/{orderId},DELETE,{},edge_variant_3,Rule-based edge test variant 3: Verify DELETE /store/order/{orderId} handles boundary condition inputs appropriately.,200
+/user/createWithList,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /user/createWithList returns a successful response.,200
+/user/createWithList,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /user/createWithList returns a successful response.,200
+/user/createWithList,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /user/createWithList returns a successful response.,200
+/user/createWithList,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /user/createWithList returns an error when required inputs are missing or invalid.,400
+/user/createWithList,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /user/createWithList returns an error when required inputs are missing or invalid.,400
+/user/createWithList,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /user/createWithList returns an error when required inputs are missing or invalid.,400
+/user/createWithList,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /user/createWithList handles boundary condition inputs appropriately.,200
+/user/createWithList,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /user/createWithList handles boundary condition inputs appropriately.,200
+/user/createWithList,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /user/createWithList handles boundary condition inputs appropriately.,200
+/user/{username},GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /user/{username} returns a successful response.,200
+/user/{username},GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /user/{username} returns a successful response.,200
+/user/{username},GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /user/{username} returns a successful response.,200
+/user/{username},GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},PUT,{},positive_variant_1,Rule-based positive test variant 1: Verify PUT /user/{username} returns a successful response.,200
+/user/{username},PUT,{},positive_variant_2,Rule-based positive test variant 2: Verify PUT /user/{username} returns a successful response.,200
+/user/{username},PUT,{},positive_variant_3,Rule-based positive test variant 3: Verify PUT /user/{username} returns a successful response.,200
+/user/{username},PUT,{},negative_variant_1,Rule-based negative test variant 1: Verify PUT /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},PUT,{},negative_variant_2,Rule-based negative test variant 2: Verify PUT /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},PUT,{},negative_variant_3,Rule-based negative test variant 3: Verify PUT /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},PUT,{},edge_variant_1,Rule-based edge test variant 1: Verify PUT /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},PUT,{},edge_variant_2,Rule-based edge test variant 2: Verify PUT /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},PUT,{},edge_variant_3,Rule-based edge test variant 3: Verify PUT /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},DELETE,{},positive_variant_1,Rule-based positive test variant 1: Verify DELETE /user/{username} returns a successful response.,200
+/user/{username},DELETE,{},positive_variant_2,Rule-based positive test variant 2: Verify DELETE /user/{username} returns a successful response.,200
+/user/{username},DELETE,{},positive_variant_3,Rule-based positive test variant 3: Verify DELETE /user/{username} returns a successful response.,200
+/user/{username},DELETE,{},negative_variant_1,Rule-based negative test variant 1: Verify DELETE /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},DELETE,{},negative_variant_2,Rule-based negative test variant 2: Verify DELETE /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},DELETE,{},negative_variant_3,Rule-based negative test variant 3: Verify DELETE /user/{username} returns an error when required inputs are missing or invalid.,400
+/user/{username},DELETE,{},edge_variant_1,Rule-based edge test variant 1: Verify DELETE /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},DELETE,{},edge_variant_2,Rule-based edge test variant 2: Verify DELETE /user/{username} handles boundary condition inputs appropriately.,200
+/user/{username},DELETE,{},edge_variant_3,Rule-based edge test variant 3: Verify DELETE /user/{username} handles boundary condition inputs appropriately.,200
+/user/login,GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /user/login returns a successful response.,200
+/user/login,GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /user/login returns a successful response.,200
+/user/login,GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /user/login returns a successful response.,200
+/user/login,GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /user/login returns an error when required inputs are missing or invalid.,400
+/user/login,GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /user/login returns an error when required inputs are missing or invalid.,400
+/user/login,GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /user/login returns an error when required inputs are missing or invalid.,400
+/user/login,GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /user/login handles boundary condition inputs appropriately.,200
+/user/login,GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /user/login handles boundary condition inputs appropriately.,200
+/user/login,GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /user/login handles boundary condition inputs appropriately.,200
+/user/logout,GET,{},positive_variant_1,Rule-based positive test variant 1: Verify GET /user/logout returns a successful response.,200
+/user/logout,GET,{},positive_variant_2,Rule-based positive test variant 2: Verify GET /user/logout returns a successful response.,200
+/user/logout,GET,{},positive_variant_3,Rule-based positive test variant 3: Verify GET /user/logout returns a successful response.,200
+/user/logout,GET,{},negative_variant_1,Rule-based negative test variant 1: Verify GET /user/logout returns an error when required inputs are missing or invalid.,400
+/user/logout,GET,{},negative_variant_2,Rule-based negative test variant 2: Verify GET /user/logout returns an error when required inputs are missing or invalid.,400
+/user/logout,GET,{},negative_variant_3,Rule-based negative test variant 3: Verify GET /user/logout returns an error when required inputs are missing or invalid.,400
+/user/logout,GET,{},edge_variant_1,Rule-based edge test variant 1: Verify GET /user/logout handles boundary condition inputs appropriately.,200
+/user/logout,GET,{},edge_variant_2,Rule-based edge test variant 2: Verify GET /user/logout handles boundary condition inputs appropriately.,200
+/user/logout,GET,{},edge_variant_3,Rule-based edge test variant 3: Verify GET /user/logout handles boundary condition inputs appropriately.,200
+/user/createWithArray,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /user/createWithArray returns a successful response.,200
+/user/createWithArray,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /user/createWithArray returns a successful response.,200
+/user/createWithArray,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /user/createWithArray returns a successful response.,200
+/user/createWithArray,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /user/createWithArray returns an error when required inputs are missing or invalid.,400
+/user/createWithArray,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /user/createWithArray returns an error when required inputs are missing or invalid.,400
+/user/createWithArray,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /user/createWithArray returns an error when required inputs are missing or invalid.,400
+/user/createWithArray,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /user/createWithArray handles boundary condition inputs appropriately.,200
+/user/createWithArray,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /user/createWithArray handles boundary condition inputs appropriately.,200
+/user/createWithArray,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /user/createWithArray handles boundary condition inputs appropriately.,200
+/user,POST,{},positive_variant_1,Rule-based positive test variant 1: Verify POST /user returns a successful response.,200
+/user,POST,{},positive_variant_2,Rule-based positive test variant 2: Verify POST /user returns a successful response.,200
+/user,POST,{},positive_variant_3,Rule-based positive test variant 3: Verify POST /user returns a successful response.,200
+/user,POST,{},negative_variant_1,Rule-based negative test variant 1: Verify POST /user returns an error when required inputs are missing or invalid.,400
+/user,POST,{},negative_variant_2,Rule-based negative test variant 2: Verify POST /user returns an error when required inputs are missing or invalid.,400
+/user,POST,{},negative_variant_3,Rule-based negative test variant 3: Verify POST /user returns an error when required inputs are missing or invalid.,400
+/user,POST,{},edge_variant_1,Rule-based edge test variant 1: Verify POST /user handles boundary condition inputs appropriately.,200
+/user,POST,{},edge_variant_2,Rule-based edge test variant 2: Verify POST /user handles boundary condition inputs appropriately.,200
+/user,POST,{},edge_variant_3,Rule-based edge test variant 3: Verify POST /user handles boundary condition inputs appropriately.,200
