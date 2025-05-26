@@ -84,8 +84,7 @@ body {
   width: 50%;
 }
 .title {
-  display: flex;
-  justify-content: center;
+  
   width: 50%;
   color: #fff;
 }
