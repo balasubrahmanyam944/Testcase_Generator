@@ -428,7 +428,8 @@ console.log(selectedFile);
         }}
       >
         <div className="title">
-          <h1>AIM 1.0</h1>
+        <div style={{width:"100%", display:"flex", justifyContent:"center"}}><h1>AIM 1.0</h1></div>
+          <div style={{width:"100%", display:"flex", justifyContent:"center"}}><h2 style={{margin:"5px 0px"}}>Testcase Generator</h2></div>
           {/* <h4>Testcase Generator</h4> */}
         </div>
       </div>
